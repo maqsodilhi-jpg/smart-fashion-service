@@ -1,266 +1,221 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Fashion Services</title>  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Fashion Services</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f1111; /* Amazon dark */
-      color: #e6e6e6;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* ===== HEADER ===== */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #131921;
-      z-index: 1000;
-    }
-
-    nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #ffffff; /* changed from yellow */
-    }
-
-    .nav-links { display: flex; gap: 25px; }
-
-    .nav-links a:hover { color: #febd69; }
-
-    /* ===== HERO ===== */
-    .hero {
-      margin-top: 80px;
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #232f3e, #131921);
-    }
-
-    .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { color: #ccc; margin-bottom: 25px; }
-
-    .btn {
-      background: #febd69;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    /* ===== SECTIONS ===== */
-    section { max-width: 1200px; margin: auto; padding: 40px 20px; }
-
-    h2 { text-align: center; margin-bottom: 30px; color: #febd69; }
-
-    /* ===== AMAZON STYLE CATEGORIES ===== */
-.amazon-categories{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:Arial, sans-serif;
+background:#0f1111;
+color:#e6e6e6;
 }
-@media(max-width:768px){
-  .amazon-categories{grid-template-columns:repeat(2,1fr);}
+a{text-decoration:none;color:inherit;}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#131921;
+z-index:1000;
 }
-.amazon-cat{
-  background:#131921;
-  border-radius:12px;
-  padding:15px;
-  text-align:left;
-  cursor:pointer;
-  transition:transform .3s ease, box-shadow .3s ease;
-  border:1px solid #232f3e;
+nav{
+max-width:1200px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
-.amazon-cat:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 20px rgba(0,0,0,.6);
+.logo{
+font-size:1.4rem;
+font-weight:bold;
+color:#febd69;
 }
-.amazon-cat img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-bottom:10px;
+.nav-links{
+display:flex;
+gap:25px;
 }
-.amazon-cat h4{
-  font-size:1rem;
-  margin-bottom:4px;
-}
-.amazon-cat span{
-  font-size:.8rem;
-  color:#febd69;
+.nav-links a{
+color:#febd69;
+font-weight:500;
 }
 
-/* ===== PRODUCTS ===== */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 products per row */
-      gap: 15px;
-    }
+.hero{
+margin-top:80px;
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(135deg,#232f3e,#131921);
+}
+.welcome-text{
+color:#febd69;
+font-size:1rem;
+font-weight:bold;
+margin-bottom:10px;
+}
+.hero h1{
+font-size:2.5rem;
+margin-bottom:10px;
+color:#febd69;
+}
+.hero p{color:#ccc;}
 
-    @media (min-width: 768px) {
-      .products-grid {
-        grid-template-columns: repeat(4, 1fr); /* desktop pe 4 */
-      }
-    }
+section{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+}
+h2{
+text-align:center;
+margin-bottom:25px;
+color:#febd69;
+}
 
-    .product {
-      background: #1a1a1a;
-      padding: 15px;
-      border-radius: 10px;
-      position: relative;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+/* Categories */
+.categories{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:30px;
+}
+.category{
+background:#1a1a1a;
+padding:10px 22px;
+border-radius:20px;
+font-weight:500;
+color:#febd69;
+}
 
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-    }
+.products-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+@media(min-width:768px){
+.products-grid{grid-template-columns:repeat(4,1fr);}
+}
 
-    .product img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
+.product{
+background:#1a1a1a;
+padding:15px;
+border-radius:10px;
+}
+.product img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+}
+.price{
+color:#febd69;
+font-weight:bold;
+margin:8px 0;
+}
+.order-btn{
+display:block;
+text-align:center;
+margin-top:10px;
+background:#25D366;
+padding:8px;
+border-radius:6px;
+font-size:0.9rem;
+}
 
-    .discount-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #cc0c39; /* Amazon red */
-      color: #fff;
-      padding: 4px 8px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      border-radius: 4px;
-    }
+footer{
+background:#131921;
+text-align:center;
+padding:15px;
+color:#aaa;
+margin-top:40px;
+}
+</style>
+</head>
 
-    .product h3 {
-      font-size: 1rem;
-      margin-bottom: 5px;
-    }
+<body>
 
-    .price {
-      color: #febd69;
-      font-weight: bold;
-      margin: 8px 0;
-    }
+<header>
+<nav>
+<div class="logo">Smart Fashion Services</div>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</header>
 
-    .order-btn {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      background: #25D366;
-      padding: 8px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
+<section class="hero">
+<div class="welcome-text">Welcome Dear Customer 👋 We’re Happy to Serve You</div>
+<h1>Shop Smart, Live Better</h1>
+<p>Trusted fashion store with premium quality & best prices</p>
+</section>
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #131921;
-      text-align: center;
-      padding: 15px;
-      color: #aaa;
-      margin-top: 40px;
-    }
+<section id="products">
+<h2>Categories</h2>
 
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 55px;
-      font-size: 26px;
-      color: #fff;
-    }
-  </style></head><body><header>
-  <nav>
-    <div class="logo">Smart Fashion Services</div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header><section class="hero">
-  <h1 style="margin-bottom:10px;">Shop Smart, Live Better</h1>
-  <div style="color:#febd69;font-size:1rem;font-weight:bold;margin-bottom:10px;">Welcome to Smart Fashion</div>
-  <p>Trusted fashion store with premium quality & best prices</p>
-  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-    <a class="btn" href="#products">Shop Now</a>
-    <a class="btn" style="background:#232f3e;color:#febd69;border:1px solid #febd69" href="#products">View Deals</a>
-  </div>  <div style="margin-top:25px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;font-size:0.85rem;color:#ccc;">
-    <span>✔ Cash on Delivery</span>
-    <span>✔ Quality Checked</span>
-    <span>✔ Fast WhatsApp Support</span>
-  </div>
-</section><section id="categories">
-  <h2>Shop by Category</h2>
-  <div class="amazon-categories"><div class="amazon-cat">
-  <img src="women.jpg" alt="Women Fashion" />
-  <h4>Women</h4>
-  <span>Up to 50% Off</span>
+<div class="categories">
+<div class="category">Kitchen</div>
+<div class="category">Baby</div>
+<div class="category">Men</div>
+<div class="category">Women</div>
 </div>
 
-<div class="amazon-cat">
-  <img src="men.jpg" alt="Men Fashion" />
-  <h4>Men</h4>
-  <span>New Arrivals</span>
-</div>
+<h2>Featured Products</h2>
 
-<div class="amazon-cat">
-  <img src="baby.jpg" alt="Baby Fashion" />
-  <h4>Baby</h4>
-  <span>Best Deals</span>
-</div>
+<div class="products-grid">
 
-  </div>
-</section><section id="products">
-  <h2>Featured Products</h2>
-  <div class="products-grid"><div class="product">
-  <div style="position:absolute;top:10px;right:10px;background:#232f3e;color:#febd69;font-size:0.7rem;padding:4px 6px;border-radius:4px;">Best Seller</div>
-  <div class="discount-badge">-20%</div>
-  <img src="bag.jpg" alt="Ladies Hand Bag" />
-  <h3>Ladies Hand Bag</h3>
-  <div class="price">2,999 PKR</div>
-  <div style="font-size:0.75rem;color:#f0c14b;">★★★★★ (4.8)</div>
-  <a class="order-btn" href="https://wa.me/923287756032?text=I%20want%20to%20order%20Ladies%20Hand%20Bag%20(2999%20PKR)" target="_blank">Order on WhatsApp</a>
+<div class="product">
+<img src="bag.jpg">
+<h3>Ladies Hand Bag</h3>
+<div class="price">2,999 PKR</div>
+<a class="order-btn">Buy Now</a>
 </div>
 
 <div class="product">
-  <div style="position:absolute;top:10px;right:10px;background:#232f3e;color:#febd69;font-size:0.7rem;padding:4px 6px;border-radius:4px;">Best Seller</div>
-  <div class="discount-badge">-15%</div>
-  <img src="green-embroidered-lawn-3pc-suit.jpg" alt="3PC Lawn Suit" />
-  <h3>Green Embroidered Lawn Suit</h3>
-  <div class="price">5,999 PKR</div>
-  <div style="font-size:0.75rem;color:#f0c14b;">★★★★★ (4.8)</div>
-  <a class="order-btn" href="https://wa.me/923287756032?text=I%20want%20to%20order%20Green%20Embroidered%20Lawn%20Suit%20(5999%20PKR)" target="_blank">Order on WhatsApp</a>
+<img src="green-embroidered-lawn-3pc-suit.jpg">
+<h3>Green Embroidered Lawn Suit</h3>
+<div class="price">5,999 PKR</div>
+<a class="order-btn">Buy Now</a>
 </div>
 
-  </div>
-</section><footer>
-  © 2026 Smart Fashion Services
-</footer><a class="whatsapp-float" href="https://wa.me/923287756032" target="_blank">📱</a>
+<div class="product">
+<img src="cream-wool-shawl.jpg">
+<h3>Men Wool Shawl (Cream)</h3>
+<div class="price">2,999 PKR</div>
+<a class="order-btn">Buy Now</a>
+</div>
+
+<div class="product">
+<img src="black-steel-watch.jpg">
+<h3>Men Premium Black Steel Watch</h3>
+<div class="price">2,899 PKR</div>
+<a class="order-btn">Buy Now</a>
+</div>
+
+<div class="product">
+<img src="grey-slipon-shoes.jpg">
+<h3>Men Grey Slip-On Sports Shoes</h3>
+<div class="price">3,999 PKR</div>
+<a class="order-btn">Buy Now</a>
+</div>
+
+<div class="product">
+<img src="dish-drying-rack.jpg">
+<h3>Premium Kitchen Dish Drying Rack</h3>
+<div class="price">6,999 PKR</div>
+<a class="order-btn">Buy Now</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Smart Fashion Services
+</footer>
 
 </body>
-</html>
+  </html>
