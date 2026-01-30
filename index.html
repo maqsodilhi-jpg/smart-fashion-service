@@ -51,7 +51,7 @@
 let product='',price=0;
 function buy(p,pr){product=p;price=pr;document.getElementById('checkout').style.display='block';window.scrollTo(0,document.body.scrollHeight);} 
 function placeOrder(){
-  let msg=`New Order%0AProduct: ${product}%0APrice: ${price} PKR%0AName: ${name.value}%0APhone: ${phone.value}%0AAddress: ${address.value}%0APayment: ${payment.value}`;
+  let msg=`🛒 *NEW ORDER RECEIVED* 🛒%0A%0A📦 *Product:* ${product}%0A💰 *Price:* ${price} PKR%0A%0A👤 *Customer Name:* ${name.value}%0A📞 *Phone:* ${phone.value}%0A🏠 *Address:* ${address.value}%0A%0A💳 *Payment Method:* ${payment.value}%0A%0A✅ Please confirm this order.`;
   window.open(`https://wa.me/923287756032?text=${msg}`,'_blank');
 }
 </script></body></html>
