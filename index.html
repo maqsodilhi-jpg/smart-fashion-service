@@ -80,12 +80,12 @@ function placeOrder(){
     return;
   }
 
-  const msg = `🛒 *NEW ORDER RECEIVED* ✅%0A
-📦 *Product:* ${product}%0A
-💰 *Price:* ${price} PKR%0A
-👤 *Name:* ${name}%0A
-📞 *Phone:* ${phone}%0A
-🏠 *Address:* ${address}%0A
+  const msg = `🛒 *NEW ORDER RECEIVED* ✅
+📦 *Product:* ${product}
+💰 *Price:* ${price} PKR
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+🏠 *Address:* ${address}
 💳 *Payment:* ${payment}`;
 
 window.open(`https://wa.me/923287756032?text=${encodeURIComponent(msg)}`, '_blank');
