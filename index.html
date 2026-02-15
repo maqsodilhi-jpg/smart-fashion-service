@@ -1,67 +1,332 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="msvalidate.01" content="F0ED88D85788312EE80182B9A8D38DEF" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
-  <title>Smart Fashion Services</title>
-  <style>
-    body{margin:0;font-family:Arial, sans-serif;background:#0e0e0e;color:#fff;}
-    header{background:#111;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
-    header h1{color:#f5a623;font-size:22px;margin:0;}
-    nav a{color:#f5a623;margin-left:15px;text-decoration:none;font-weight:bold;}
-    .products{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;padding:20px;}
-    .card{background:#1a1a1a;border-radius:12px;padding:10px;text-align:center;box-shadow:0 0 10px rgba(0,0,0,0.6);}    
-    .card img{width:100%;height:160px;object-fit:contain;border-radius:10px;background:#000;}
-    .card h3{font-size:14px;margin:10px 0 5px;}
-    .price{color:#f5a623;font-weight:bold;margin-bottom:10px;}
-    .btn{display:inline-block;background:#1ed760;color:#000;padding:8px 15px;border-radius:8px;text-decoration:none;font-weight:bold;cursor:pointer;}
-    .checkout{padding:20px;display:none;}
-    .checkout h2{text-align:center;color:#f5a623;}
-    .checkout input,.checkout select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none;}
-    .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:28px;text-decoration:none;box-shadow:0 0 10px rgba(0,0,0,0.6);}    
-    footer{text-align:center;padding:15px;font-size:13px;background:#111;margin-top:20px;}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Fashion Services</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f8ff;
+    color: #000;
+  }
+
+  header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+  }
+
+  header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #fff;
+  }
+
+  nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .center-welcome {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+  }
+
+  .price {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .price .old {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    margin-right: 5px;
+  }
+
+  .stars {
+    color: #ffc107;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn.buy1 { background: #00c6ff; color:#fff; }
+  .btn.buy1:hover { background: #0072ff; }
+
+  .btn.buy2 { background: #ffafbd; color:#fff; }
+  .btn.buy2:hover { background: #ffc3a0; }
+
+  .btn.buy3 { background: #f6d365; color:#000; }
+  .btn.buy3:hover { background: #fda085; }
+
+  .btn.buy4 { background: #c1f0f6; color:#000; }
+  .btn.buy4:hover { background: #78d5e3; }
+
+  .checkout {
+    padding: 20px;
+    display: none;
+    background: #fff7e6;
+  }
+
+  .checkout h2 {
+    text-align: center;
+    color: #ff6347;
+  }
+
+  .checkout input, .checkout select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .checkout .btn-place {
+    background: #32cd32;
+    color: #fff;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  .welcome-popup {
+    position: fixed;
+    top: 0; left: 0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .welcome-content {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    animation: popupFade 0.5s ease;
+  }
+
+  .welcome-content h2 {
+    color: #ff6347;
+    margin-bottom: 15px;
+  }
+
+  .welcome-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .welcome-content button {
+    padding: 10px 20px;
+    background: #32cd32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .welcome-content button:hover {
+    background: #28a428;
+  }
+
+  @keyframes popupFade {
+    0% {transform: scale(0.5); opacity:0;}
+    100% {transform: scale(1); opacity:1;}
+  }
+
+</style>
 </head>
-<body><header>
+<body>
+
+<!-- Welcome Popup -->
+<div class="welcome-popup" id="welcomePopup">
+  <div class="welcome-content">
+    <h2>Welcome to Smart Fashion Services!</h2>
+    <p>Explore our exclusive collection and grab amazing deals today! 🛍️</p>
+    <button onclick="closeWelcome()">Start Shopping</button>
+  </div>
+</div>
+
+<header>
   <h1>Smart Fashion Services</h1>
   <nav>
     <a href="#">Home</a>
     <a href="#products">Products</a>
     <a href="#contact">Contact</a>
   </nav>
-</header><section id="products" class="products">
-  <div class="card"><img src="grey-slipon-shoes.jpg"><h3>Men Sports Shoes</h3><div class="price">3999 PKR</div><a class="btn" onclick="buy('Men Sports Shoes',3999)">Buy Now</a></div>
-  <div class="card"><img src="black-steel-watch.jpg"><h3>Black Steel Watch</h3><div class="price">2699 PKR</div><a class="btn" onclick="buy('Black Steel Watch',2699)">Buy Now</a></div>
-  <div class="card"><img src="green-embroidered-lawn-3pc-suit.jpg"><h3>Women Lawn 3PC Suit</h3><div class="price">4999 PKR</div><a class="btn" onclick="buy('Women Lawn 3PC Suit',4999)">Buy Now</a></div>
-  <div class="card"><img src="cream-wool-shawl.jpg"><h3>Wool Shawl</h3><div class="price">2299 PKR</div><a class="btn" onclick="buy('Wool Shawl',2299)">Buy Now</a></div>
-  <div class="card"><img src="bag.jpg"><h3>Baby Carry Bag</h3><div class="price">1999 PKR</div><a class="btn" onclick="buy('Baby Carry Bag',1999)">Buy Now</a></div>
-  <div class="card"><img src="dish-drying-rack.jpg"><h3>Kitchen Dish Holder Rack</h3><div class="price">6999 PKR</div><a class="btn" onclick="buy('Kitchen Dish Holder Rack',6999)">Buy Now</a></div>
-</section><section class="checkout" id="checkout">
+</header>
+
+<div class="center-welcome">Welcome Smart Fashion Services</div>
+
+<section id="products" class="products">
+  <!-- Existing Products -->
+  <div class="card">
+    <img src="grey-slipon-shoes.jpg">
+    <h3>Men Sports Shoes</h3>
+    <div class="price"><span class="old">4599 PKR</span> <span class="new">3999 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐☆</div>
+    <a class="btn buy1" onclick="buy('Men Sports Shoes',3999)">Buy Now</a>
+  </div>
+  <div class="card">
+    <img src="black-steel-watch.jpg">
+    <h3>Black Steel Watch</h3>
+    <div class="price"><span class="old">2999 PKR</span> <span class="new">2699 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <a class="btn buy2" onclick="buy('Black Steel Watch',2699)">Buy Now</a>
+  </div>
+  <div class="card">
+    <img src="green-embroidered-lawn-3pc-suit.jpg">
+    <h3>Women Lawn 3PC Suit</h3>
+    <div class="price"><span class="old">5999 PKR</span> <span class="new">4999 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <a class="btn buy3" onclick="buy('Women Lawn 3PC Suit',4999)">Buy Now</a>
+  </div>
+  <div class="card">
+    <img src="cream-wool-shawl.jpg">
+    <h3>Wool Shawl</h3>
+    <div class="price"><span class="old">2599 PKR</span> <span class="new">2299 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐☆</div>
+    <a class="btn buy4" onclick="buy('Wool Shawl',2299)">Buy Now</a>
+  </div>
+  <div class="card">
+    <img src="bag.jpg">
+    <h3>Baby Carry Bag</h3>
+    <div class="price"><span class="old">2499 PKR</span> <span class="new">1999 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <a class="btn buy1" onclick="buy('Baby Carry Bag',1999)">Buy Now</a>
+  </div>
+  <div class="card">
+    <img src="dish-drying-rack.jpg">
+    <h3>Kitchen Dish Holder Rack</h3>
+    <div class="price"><span class="old">7999 PKR</span> <span class="new">6999 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <a class="btn buy2" onclick="buy('Kitchen Dish Holder Rack',6999)">Buy Now</a>
+  </div>
+
+  <!-- New Product: AirPods -->
+  <div class="card">
+    <img src="airpods.jpg">
+    <h3>Wireless AirPods Pro</h3>
+    <div class="price"><span class="old">2800 PKR</span> <span class="new">2300 PKR</span></div>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <a class="btn buy3" onclick="buy('Wireless AirPods Pro',2300)">Buy Now</a>
+  </div>
+
+</section>
+
+<section class="checkout" id="checkout">
   <h2>🛒 Checkout</h2>
-  <p id="selectedProduct"></p><a class="btn" style="background:#555;color:#fff;margin-bottom:10px" onclick="backToProducts()">⬅ Back to Products</a>
+  <p id="selectedProduct"></p>
+  <a class="btn" style="background:#555;color:#fff;margin-bottom:10px" onclick="backToProducts()">⬅ Back to Products</a>
 
   <input id="custName" placeholder="Your Name">
   <input id="custPhone" placeholder="Phone Number">
-  <input id="custAddress" placeholder="Delivery Address">  <select id="paymentMethod">
+  <input id="custAddress" placeholder="Delivery Address">  
+  <select id="paymentMethod">
     <option value="Cash on Delivery">Cash on Delivery</option>
     <option value="JazzCash">JazzCash</option>
     <option value="EasyPaisa">EasyPaisa</option>
-  </select><a class="btn" onclick="placeOrder()">✅ Place Order</a>
+  </select>
+  <a class="btn btn-place" onclick="placeOrder()">✅ Place Order</a>
+</section>
 
-</section><a class="whatsapp-float" href="https://wa.me/923287756032">📲</a>
+<a class="whatsapp-float" href="https://wa.me/03336517274">📲</a>
 
-<footer id="contact">© 2026 Smart Fashion Services</footer><script>
+<footer id="contact">© 2026 Smart Fashion Services</footer>
+
+<script>
 let product = "";
 let price = 0;
 
 function buy(p, pr){
   product = p;
   price = pr;
-
   document.getElementById('products').style.display = 'none';
   document.getElementById('checkout').style.display = 'block';
-
   document.getElementById('selectedProduct').innerHTML = `📦 <b>${product}</b><br>💰 ${price} PKR`;
   window.scrollTo(0,0);
 }
@@ -90,7 +355,18 @@ function placeOrder(){
 🏠 *Address:* ${address}
 💳 *Payment:* ${payment}`;
 
-window.open(`https://wa.me/923287756032?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/03336517274?text=${encodeURIComponent(msg)}`, '_blank');
 }
-</script></body>
+
+// Welcome popup logic
+function closeWelcome(){
+  document.getElementById('welcomePopup').style.display = 'none';
+}
+
+window.onload = function(){
+  document.getElementById('welcomePopup').style.display = 'flex';
+}
+</script>
+
+</body>
   </html>
